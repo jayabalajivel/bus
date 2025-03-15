@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Details Table</title>
+    <link rel="icon" href="/pngtree-passenger-coach-bus-woodcut-png-image_10206746.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #fce4ec;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #d81b60;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .table-container {
+            max-width: 1000px;
+            width: 100%;
+            background: #f8bbd0;
+            border-radius: 12px;
+            box-shadow: 10px 10px 20px #d6a3b1, -10px -10px 20px #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #ec407a;
+        }
+        table th {
+            background: #d81b60;
+            color: white;
+            font-weight: bold;
+        }
+        table tbody tr:nth-child(even) {
+            background-color: #fce4ec;
+        }
+        table tbody tr:hover {
+            background: #f48fb1;
+            transition: 0.3s ease-in-out;
+        }
+        .Add {
+            background: #d81b60;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 5px 5px 10px #b71550, -5px -5px 10px #ff6090;
+        }
+        .Add:hover {
+            background: #ad1457;
+            transform: scale(1.05);
+        }
+        .dropdown-container summary {
+            list-style: none;
+            cursor: pointer;
+            font-size: 20px;
+            border: none;
+            background: none;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            width: 120px;
+            display: none;
+            overflow: hidden;
+        }
+        details[open] .dropdown {
+            display: block;
+        }
+        .dropdown button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: none;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 14px;
+        }
+        .dropdown button:hover {
+            background: #f8bbd0;
+        }
+    </style>
+</head>
+<body>
+    {{> navbar }}
+    <h1>Driver Details Table</h1>
+    <a class="Add" href="/AddUser">➕ Add User</a>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Driver's Name</th>
+                    <th>Driver's ID</th>
+                    <th>Licence Number</th>
+                    <th>Licence Expiry Date</th>
+                    <th>Contact Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each Print}}
+                <tr>
+                    <td>{{this.Driver_Name}}</td>
+                    <td>{{this.Driver_ID}}</td>
+                    <td>{{this.Licence_Number}}</td>
+                    <td>{{this.Licence_Expiry_Date}}</td>
+                    <td>{{this.Contact_Number}}</td>
+                    <td>
+                        <details class="dropdown-container">
+                            <summary class="dropdown-btn">⋮</summary>
+                            <div class="dropdown">
+                                <a href="/EditUser/{{this.id}}"><button>Edit</button></a>
+                                <form action="/DeleteUser/{{this.id}}" method="POST">
+                                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.addEventListener("click", function (event) {
+            document.querySelectorAll(".dropdown-container").forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.removeAttribute("open");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

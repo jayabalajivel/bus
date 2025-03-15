@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Management-Details</title>
+    <link rel="icon" href="/pngtree-passenger-coach-bus-woodcut-png-image_10206746.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .Details {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            margin-top: 100px;
+        }
+
+        .button-container button {
+            background-color: grey;
+            color: #fff;
+            font-size: 16px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body class="Details">
+    {{> navbar }}
+    <main>
+        <div class="button-container">
+            <button onclick="location.href='#'">Route Management</button>
+            <button onclick="location.href='/DriverDetails'">Driver Details</button>
+            <button onclick="location.href='/BusDetails'">Bus Details</button>
+        </div>
+    </main>
+</body>
+</html>

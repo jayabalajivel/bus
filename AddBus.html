@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bus Details</title>
+    <link rel="stylesheet" href="Styles/AddBus.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Bus Details</h1>  
+        <form id="busForm">
+            <div class="form-group">
+                <label for="BusNumber">Bus Number:</label>
+                <input type="text" id="BusNumber" name="BusNumber" placeholder="Enter Bus Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="TNNumber">TN Number:</label>
+                <input type="text" id="TNNumber" name="TNNumber" placeholder="Enter TN Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="RegistrationNumber">Registration Number:</label>
+                <input type="text" id="RegistrationNumber" name="RegistrationNumber" placeholder="Enter Registration Number" required>
+            </div>
+
+            <button type="submit" class="submit-button" disabled>Submit Bus Details</button>
+        </form>
+
+        <p class="view-link">Want to view details? <a href="/BusDetails">Click here</a>.</p>
+        <p id="successMessage" class="success-message">✔ Details submitted successfully!</p>
+    </div>
+
+    <script src="Javascript/AddBus.js"></script>
+</body>
+</html>

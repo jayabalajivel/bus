@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Bus Details</title>
+    <link rel="stylesheet" href="EditBus.css">
+    <link rel="icon" href="/pngtree-passenger-coach-bus-woodcut-png-image_10206746.png">
+</head>
+<body>
+    {{> navbar }}
+
+    <main>
+        <section class="bus-container">
+            <h1>Edit Bus Details</h1> 
+        {{#with Print }} 
+            <form action="/Auth/EditBus/{{id}}" method="post">
+                <div class="form-group">
+                    <label for="BusNumber">Bus Number:</label>
+                    <input type="text" name="BusNumber" value="{{Bus_Number}}" placeholder="Enter your Bus Number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="TNNumber">TN Number:</label>
+                    <input type="text" name="TNNumber" value="{{TN_Number}}" placeholder="Enter your TN Number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="RegistrationNumber">Registration Number:</label>
+                    <input type="number" name="RegistrationNumber" value="{{Registration_Number}}" placeholder="Enter your Registration Number" required>
+                </div>
+
+                {{#if msg}}
+                <p class="{{msg_type}}">{{msg}}</p>
+                {{/if}}
+
+                <button type="submit" class="submit-button">Edit Bus Details</button>
+                <p class="view">Want to view details? <a href="/BusDetails">Click here.</a></p>
+            </form>
+        {{/with}}
+        </section>
+    </main>
+
+    <script src="EditBus.js"></script>
+</body>
+</html>

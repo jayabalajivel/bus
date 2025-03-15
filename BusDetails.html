@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Details Table</title>
+    <link rel="stylesheet" href="Styles/BusDetails.css">
+    <script defer src="Javascript/BusDetails.js"></script>
+    <link rel="icon" href="/pngtree-passenger-coach-bus-woodcut-png-image_10206746.png">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Transport Management System</h1>
+    </nav>
+
+    <div class="container">
+        <h1>Bus Details Table</h1>
+        <a class="add-button" href="/AddBus">Add Bus</a>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bus Number</th>
+                        <th>TN Number</th>
+                        <th>Registration Number</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Row -->
+                    <tr>
+                        <td>123</td>
+                        <td>TN-567</td>
+                        <td>XYZ-987</td>
+                        <td>
+                            <details class="dropdown-container">
+                                <summary class="dropdown-btn">⋮</summary>
+                                <div class="dropdown">
+                                    <a href="/EditBus/123"><button>Edit</button></a>
+                                    <a href="/DeleteBus/123"><button onclick="return confirm('Are you sure to Delete?')">Delete</button></a>
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+                    <!-- More rows will be dynamically added -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

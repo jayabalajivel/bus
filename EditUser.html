@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Driver Details</title>
+    <link rel="icon" href="/pngtree-passenger-coach-bus-woodcut-png-image_10206746.png">
+    <link rel="stylesheet" href="Edituser.css">
+</head>
+<body>
+    {{> navbar }}
+    <main>
+        <section class="form-container">
+            <h1>Edit Driver Details</h1>  
+            {{#with Print }}
+            <form action="/Auth/EditUser/{{id}}" method="post">
+                <div class="form-group">
+                    <label for="DriverName">Driver's Name:</label>
+                    <input type="text" id="DriverName" name="DriverName" value="{{Driver_Name}}" placeholder="Enter your Driver Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="DriverID">Driver's ID:</label>
+                    <input type="text" id="DriverID" name="DriverID" value="{{Driver_ID}}" placeholder="Enter your Driver ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="LicenceNumber">Licence Number:</label>
+                    <input type="text" id="LicenceNumber" name="LicenceNumber" value="{{Licence_Number}}" placeholder="Enter your Licence Number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="LicenceExpiryDate">Licence Expiry Date:</label>
+                    <input type="date" id="LicenceExpiryDate" name="LicenceExpiryDate" value="{{Licence_Expiry_Date}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ContactNumber">Contact Number:</label>
+                    <input type="tel" id="ContactNumber" name="ContactNumber" value="{{Contact_Number}}" placeholder="Enter your Contact Number" required>
+                </div>
+                
+                {{#if msg}}
+                <p class="alert {{msg_type}}">{{msg}}</p>
+                {{/if}}
+
+                <button type="submit" class="submit-button">Edit Driver Details</button>
+                <p class="view-link">Do you want to view? <a href="/DriverDetails">View here</a>.</p>
+            </form>
+            {{/with}}
+        </section>
+    </main>
+    <script src="EditUser.js"></script>
+</body>
+</html>
